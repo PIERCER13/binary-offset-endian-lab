@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="piercer" />
+  <title>Piercer Binary Offset, Endian & x64 Lab</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Piercer Binary Offset, Endian &amp; x64 Lab</h1>
+      <p class="subtitle">Conversor Little/Big-Endian, cálculo RVA ↔ File Offset (RAW), aritmética Hex e mapa de registradores x86/x64</p>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="card">
+      <h2>Conversor Endianness &amp; Ponteiros</h2>
+      <div class="field"><label>Valor Hex (32-bit ou 64-bit, ex: 7FF6A1B2C3D4)</label><input type="text" id="hexVal" value="12345678" /></div>
+      <div id="endianOut" class="status-box"></div>
+
+      <hr class="sep" />
+      <h2>Calculadora RVA ↔ File Offset (Seção PE)</h2>
+      <div class="row-3">
+        <div class="field"><label>RVA Alvo (Hex)</label><input type="text" id="rvaHex" value="1540" /></div>
+        <div class="field"><label>Section VA (Hex)</label><input type="text" id="secVa" value="1000" /></div>
+        <div class="field"><label>Section RawAddr (Hex)</label><input type="text" id="secRaw" value="400" /></div>
+      </div>
+      <div id="rvaOut" class="status-box">File Offset (RAW): 0x940</div>
+    </section>
+
+    <section class="card">
+      <h2>Mapa de Registradores x86 / x64</h2>
+      <table>
+        <thead><tr><th>64-bit</th><th>32-bit</th><th>16-bit</th><th>8-bit (High / Low)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>RAX</strong></td><td>EAX</td><td>AX</td><td>AH / AL</td></tr>
+          <tr><td><strong>RBX</strong></td><td>EBX</td><td>BX</td><td>BH / BL</td></tr>
+          <tr><td><strong>RCX</strong></td><td>ECX</td><td>CX</td><td>CH / CL</td></tr>
+          <tr><td><strong>RDX</strong></td><td>EDX</td><td>DX</td><td>DH / DL</td></tr>
+          <tr><td><strong>RSI</strong></td><td>ESI</td><td>SI</td><td>- / SIL</td></tr>
+          <tr><td><strong>RDI</strong></td><td>EDI</td><td>DI</td><td>- / DIL</td></tr>
+          <tr><td><strong>RBP</strong></td><td>EBP</td><td>BP</td><td>- / BPL</td></tr>
+          <tr><td><strong>RSP</strong></td><td>ESP</td><td>SP</td><td>- / SPL</td></tr>
+          <tr><td><strong>R8–R15</strong></td><td>R8D–R15D</td><td>R8W–R15W</td><td>- / R8B–R15B</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <script src="./piercer_i18n.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
